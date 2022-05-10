@@ -1,0 +1,248 @@
+:root {
+    --main-color: #ff9800;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+.container {
+    width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+}
+/* start settigns box */
+.settings-box {
+    position: fixed;
+    left: -200px;
+    top: 0;
+    background-color: #fff;
+    width: 200px;
+    z-index: 1000;
+    min-height: 100vh;
+    transition: 0.3s;
+}
+.settings-box.open {
+    left: 0;
+}
+.settings-box .toggle-settings {
+    position: absolute;
+    right: -30px;
+    top: 100px;
+    background-color: #fff;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.settings-box .toggle-settings .fa-gear {
+    width: 30px;
+    padding: 8px 0;
+}
+.settings-box .settings-content .option-box {
+    padding: 10px;
+    text-align: center;
+    background-color: #eee;
+    margin: 10px;
+}
+.settings-box .settings-content .option-box h4 {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+.settings-box .settings-content .option-box .colors-list {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 10px 0 0;
+}
+.settings-box .settings-content .option-box .colors-list li {
+    width: 24px;
+    height: 24px;
+    background-color: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    border: 3px solid #eee;
+}
+.settings-box .settings-content .option-box .colors-list li.active {
+    border-color: white;
+}
+.settings-box .settings-content .option-box .colors-list li:first-child {
+    background-color: #ff9800;
+}
+.settings-box .settings-content .option-box .colors-list li:nth-child(2) {
+    background-color: #E91E63;
+}
+.settings-box .settings-content .option-box .colors-list li:nth-child(3) {
+    background-color: #009688;
+}
+.settings-box .settings-content .option-box .colors-list li:nth-child(4) {
+    background-color: #1d1fa3;
+}
+.settings-box .settings-content .option-box .colors-list li:nth-child(5) {
+    background-color: #08a83d;
+}
+.settings-box .settings-content .random-backgrounds .yes,
+.settings-box .settings-content .random-backgrounds .no {
+    width: 50px;
+    background-color: #009688;
+    color: #fff;
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px 10px;
+    font-weight: bold;
+    border-radius: 4px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.settings-box .settings-content .random-backgrounds span.active {
+    opacity: 1;
+}
+/* end settigns box */
+/* start landing page */
+.landing-page {
+    min-height: 100vh;
+    background-image: url("../imgs/switch1.jpg");
+    background-size: cover;
+    position: relative;
+}
+.landing-page .overlay {
+    background-color: rgba(0 0 0 / .6);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.header-area {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    display: flex;
+    padding: 10px;
+}
+.header-area .logo {
+    width: 300px;
+    padding: 15px;
+    font-weight: bold;
+}
+.header-area .links {
+    list-style: none;
+    width: 100%;
+    text-align: right;
+    padding-left: 0;
+    padding-right: 20px;
+    font-size: 15px;
+}
+.header-area .links li {
+    display: inline-block;
+    margin-left: 10px;
+}
+.header-area .links li a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.header-area .links li a:hover,
+.header-area .links li a.active {
+    color: var(--main-color);
+}
+.introduction-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
+.introduction-text h1 {
+    font-size: 34px;
+    margin: 0 0 12px;
+}
+.introduction-text h1 span {
+    color: var(--main-color);
+}
+.introduction-text p {
+    line-height: 1.6;
+    font-size: 20px;
+    margin: 0;
+}
+/* end landing page */
+/* start about us */
+.about-us {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+}
+.about-us .info-box {
+    flex: 1;
+    padding: 30px;
+}
+.about-us .info-box h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 0 10px;
+}
+.about-us .info-box p {
+    line-height: 1.8;
+    color: #767676;
+    margin: 0;
+}
+.about-us .image-box {
+    flex: 1;
+    text-align: center;
+}
+.about-us .image-box img {
+    width: 250px;
+}
+/* end about us */
+/* start our skills */
+.skills {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #EEE;
+}
+.skills h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 0 50px;
+    text-align: center;
+}
+.skills .skill-box {
+    background-color: #FFF;
+    display: flex;
+    padding: 15px;
+    margin: 15px;
+}
+.skills .skill-box .skill-name {
+    font-weight: bold;
+    width: 140px;
+    line-height: 30px;
+}
+.skills .skill-box .skill-progress {
+    height: 30px;
+    width: 100%;
+    text-align: right;
+    background-color: #F6f6f6;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+.skills .skill-box .skill-progress span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--main-color);
+    transition: all .5s;
+}
+/* end our skills */
