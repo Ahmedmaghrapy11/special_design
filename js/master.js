@@ -181,3 +181,85 @@ window.onscroll = function () {
         });
     }
 };
+
+// create popup with the image
+let ourGallery = document.querySelectorAll(".gallery img");
+
+// do the following actions for every clicked image
+ourGallery.forEach(img => {
+
+    img.addEventListener("click", (event) => {
+        
+        // create overlay div element
+        let overlay = document.createElement("div");
+        
+        // add class to overlay div
+        overlay.className = "popup-overlay";
+        
+        // append overlay to the body
+        document.body.appendChild(overlay);
+
+        // create the popup box
+        let popupBox = document.createElement("div");
+
+        // add class to the popup box
+        popupBox.className = "popup-box";
+
+        // check if there is an alt text
+        if (img.alt !== null) {
+            
+            //create heading
+            let imageHeading = document.createElement("h3");
+
+            // create text for the heading
+            let imgText = document.createTextNode(img.alt);
+
+            // append the text to the heading
+            imageHeading.appendChild(imgText);
+
+            // append the heading to the popup box
+            popupBox.appendChild(imageHeading);
+            
+        }
+
+        // create the image
+        let popupImage = document.createElement("img");
+
+        // set image source
+        popupImage.src = img.src;
+
+        // append img to the popup box
+        popupBox.appendChild(popupImage);
+
+        // append popup box to the body
+        document.body.appendChild(popupBox);
+
+        // create the close span
+        let closeButton = document.createElement("span");
+
+        // create the close button text
+        let closeButtonText = document.createTextNode('X');
+
+        // append 'X' text to the close span
+        closeButton.appendChild(closeButtonText);
+
+        // add class to the close span
+        closeButton.className = "close";
+
+        // append close span the popup box
+        popupBox.appendChild(closeButton);
+    });
+});
+
+// close popup box
+document.addEventListener("click", function (event) {
+    
+    if (event.target.className == "close") {
+
+        // remove popup box from DOM
+        event.target.parentNode.remove();
+
+        // remove the overlay div from dom
+        document.querySelector(".popup-overlay").remove();
+    }
+});
