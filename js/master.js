@@ -263,3 +263,21 @@ document.addEventListener("click", function (event) {
         document.querySelector(".popup-overlay").remove();
     }
 });
+
+// select all bullets
+const allBullets = document.querySelectorAll(".nav-bullets .bullet");
+
+allBullets.forEach((bullet) => {
+
+    bullet.addEventListener("click", (event) => {
+
+        // transfer to the clicked section using scrollIntoView()
+        document.querySelector(event.target.dataset.section).scrollIntoView(
+
+            {behavior: "smooth"}
+        
+        );
+
+    });
+
+});
