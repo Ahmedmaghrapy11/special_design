@@ -750,6 +750,13 @@ body {
     transition: 0.3s;
 }
 /* end contact */
+/* start footer */
+.footer {
+    background-color: #333;
+    color: #EEE;
+    padding: 15px;
+}
+/* end footer */
 /* start grid system with media query */
 @media (min-width: 576px) {
     .container {
