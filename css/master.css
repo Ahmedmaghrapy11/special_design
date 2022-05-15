@@ -8,7 +8,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 .container {
-    width: 1170px;
+    /* width: 1170px; */
     padding-left: 15px;
     padding-right: 15px;
     margin: auto;
@@ -60,7 +60,7 @@ body {
     transform: translateY(-50%);
 }
 /* end nav bullets */
-/* start settigns box */
+/* start settings box */
 .settings-box {
     position: fixed;
     left: -200px;
@@ -70,6 +70,7 @@ body {
     z-index: 1000;
     min-height: 100vh;
     transition: 0.3s;
+    border: 1px solid #EEE;
 }
 .settings-box.open {
     left: 0;
@@ -131,10 +132,10 @@ body {
 .settings-box .settings-content .option-box .colors-list li:nth-child(5) {
     background-color: #08a83d;
 }
-.settings-box .settings-content .random-backgrounds .yes,
-.settings-box .settings-content .random-backgrounds .no {
+.settings-box .settings-content .option-box .yes,
+.settings-box .settings-content .option-box .no {
     width: 50px;
-    background-color: #009688;
+    background-color: var(--main-color);
     color: #fff;
     margin-top: 10px;
     display: inline-block;
@@ -145,8 +146,20 @@ body {
     opacity: 0.5;
     cursor: pointer;
 }
-.settings-box .settings-content .random-backgrounds span.active {
+.settings-box .settings-content .option-box span.active {
     opacity: 1;
+}
+.settings-box .reset-options {
+    background-color: #923918;
+    border: none;
+    width: 178px;
+    margin: 10px auto;
+    display: block;
+    color: #FFF;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 /* end settigns box */
 /* start landing page */
@@ -165,6 +178,10 @@ body {
     top: 0;
     z-index: 1;
 }
+.landing-page .container {
+    position: relative;
+    z-index: 1000;
+}
 .header-area {
     position: relative;
     z-index: 2;
@@ -177,13 +194,40 @@ body {
     padding: 15px;
     font-weight: bold;
 }
-.header-area .links {
-    list-style: none;
+.header-area .toggle-menu {
+    background: none;
+    display: none;
+    border: none;
+    width: 40px;
+    cursor: pointer;
+    margin-top: 15px;
+    position: relative;
+}
+.header-area .toggle-menu.menu-active::before {
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #FFF transparent;
+    position: absolute;
+    bottom: -15px;
+    left: 10px;
+}
+.header-area .toggle-menu:focus {
+    outline: none;
+}
+.header-area .toggle-menu span {
+    display: block;
+    background-color: #FFF;
+    height: 3px;
+    margin-bottom: 4px;
+}
+.header-area .links-container {
     width: 100%;
     text-align: right;
+}
+.header-area .links {
+    list-style: none;
     padding-left: 0;
-    padding-right: 20px;
-    font-size: 15px;
 }
 .header-area .links li {
     display: inline-block;
@@ -206,11 +250,16 @@ body {
     z-index: 2;
     color: #fff;
     text-align: center;
-    width: 100%;
+    width: 95%;
 }
 .introduction-text h1 {
     font-size: 34px;
     margin: 0 0 12px;
+}
+@media (max-width: 576px) {
+    .introduction-text h1 {
+        font-size: 26px;
+    }
 }
 .introduction-text h1 span {
     color: var(--main-color);
@@ -220,12 +269,54 @@ body {
     font-size: 20px;
     margin: 0;
 }
+@media (max-width: 991px) {
+    .header-area .links {
+        display: none;
+    }
+    .header-area .links.open {
+        background-color: #FFF;
+        padding: 10px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 100%;
+        border-radius: 4px;
+        text-align: left;
+    }
+    .header-area .links.open li {
+        display: block;
+        margin: 10px;
+    }
+    .header-area .links.open li a {
+        color: var(--main-color);
+        font-weight: bold;
+    }
+    .header-area .toggle-menu {
+        display: inline-block;
+    }
+}
 /* end landing page */
 /* start about us */
 .about-us {
     padding-top: 50px;
     padding-bottom: 50px;
     display: flex;
+}
+@media (max-width: 576px) {
+    .about-us {
+        display: block;
+        text-align: center;
+    }
+}
+@media (max-width: 767px) {
+    .about-us {
+        display: block;
+        text-align: center;
+    }
+    .about-us .info-box {
+        padding: 0;
+    }
 }
 .about-us .info-box {
     flex: 1;
@@ -269,10 +360,21 @@ body {
     padding: 15px;
     margin: 15px;
 }
+@media (max-width: 767px) {
+    .skills .skill-box {
+        display: block;
+    }
+}
 .skills .skill-box .skill-name {
     font-weight: bold;
     width: 140px;
     line-height: 30px;
+}
+@media (max-width: 767px) {
+    .skills .skill-box .skill-name {
+        width: 100%;
+        margin-bottom: 15px;
+    }
 }
 .skills .skill-box .skill-progress {
     height: 30px;
@@ -295,8 +397,9 @@ body {
 /* end our skills */
 /* start gallery */
 .gallery {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    text-align: center;
 }
 .gallery h2 {
     font-weight: bold;
@@ -573,3 +676,99 @@ body {
     margin: 0;
 }
 /* end testimonials */
+/* start contact */
+.contact {
+    min-height: 600px;
+    background-image: url("../imgs/g9.jpg");
+    background-size: cover;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    position: relative;
+}
+.contact .overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255 255 255 / 60%);
+}
+.contact .container {
+    position: relative;
+    z-index: 2;
+}
+.contact h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 0 60px;
+    text-align: center;
+}
+.contact form {
+    overflow: hidden;
+    max-width: 800px;
+    margin: auto;
+}
+.contact form .left {
+    float: left;
+    width: 49%;
+}
+.contact form .right {
+    float: right;
+    width: 49%;
+}
+.contact form input:not([type="submit"]),
+.contact form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CCC;
+    background-color: rgba(218, 218, 218, 0.19);
+}
+.contact form input:not([type="submit"]):focus,
+.contact form textarea:focus {
+    outline: 1px solid var(--main-color);
+}
+.contact form input {
+    height: 40px;
+}
+.contact form textarea {
+    height: 150px;
+}
+.contact form input[type="submit"] {
+    padding: 10px;
+    width: 100%;
+    border-color: transparent;
+    background-color: var(--main-color);
+    color: #FFF;
+    cursor: pointer;
+}
+.contact form input:not([type="submit"]):focus::-webkit-input-placeholder,
+.contact form textarea:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: 0.3s;
+}
+/* end contact */
+/* start grid system with media query */
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+/* end grid system with media query */

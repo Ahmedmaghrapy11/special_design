@@ -36,6 +36,14 @@
                     <span class="no" data-background="no">No</span>
                 </div>
             </div>
+            <div class="option-box">
+                <h4>Show Bullets</h4>
+                <div class="show-bullets">
+                    <span class="yes active" data-display="show">Show</span>
+                    <span class="no" data-display="hide">Hide</span>
+                </div>
+            </div>
+            <button class="reset-options">Reset Options</button>
         </div>
     </div>
     <!-- end settings box -->
@@ -53,6 +61,12 @@
         <div class="bullet" data-section=".timeline">
             <div class="tooltip">Timeline</div>
         </div>
+        <div class="bullet" data-section=".features">
+            <div class="tooltip">Features</div>
+        </div>
+        <div class="bullet" data-section=".testimonials">
+            <div class="tooltip">Testimonials</div>
+        </div>
     </div>
     <!-- end nav bullets -->
     <!-- start landing page -->
@@ -61,12 +75,21 @@
         <div class="container">
             <div class="header-area">
                 <div class="logo">Special Design</div>
-                <ul class="links">
-                    <li><a href="#" class="active">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
+                <div class="links-container">
+                    <ul class="links">
+                        <li><a href="#" class="active"data-section=".about-us">About Us</a></li>
+                        <li><a href="#" data-section=".skills">Our Skills</a></li>
+                        <li><a href="#" data-section=".gallery">Our Gallery</a></li>
+                        <li><a href="#" data-section=".timeline">Timeline</a></li>
+                        <li><a href="#" data-section=".features">Features</a></li>
+                        <li><a href="#" data-section=".testimonials">Testimonials</a></li>
+                    </ul>
+                    <button class="toggle-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="introduction-text">
@@ -225,6 +248,7 @@
         </div>
         <div class="clearfix"></div>
     </div>
+    <!-- end features -->
     <!-- start testimonials -->
     <div class="testimonials">
         <div class="container">
@@ -257,7 +281,26 @@
         <div class="clearfix"></div>
     </div>
     <!-- end testimonials -->
-    <!-- end features -->
+    <!-- start contact -->
+    <div class="contact">
+        <div class="overlay"></div>
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form action="">
+                <div class="left">
+                    <input type="text" placeholder="your name" name="username">
+                    <input type="email" placeholder="your email" name="email">
+                    <input type="number" placeholder="your phone" name="phone">
+                    <input type="text" placeholder="subject" name="subject">
+                </div>
+                <div class="right">
+                    <textarea name="message" placeholder="your message"></textarea>
+                    <input type="submit" value="Send">
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- end contact -->
     <script src="js/master.js"></script>
 </body>
 </html>
